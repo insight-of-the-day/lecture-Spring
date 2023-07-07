@@ -13,7 +13,13 @@ xml비주류가 되어가능,,,현실,,,데신애 annotation 마니 쓴다!
 
 spring은 프록시패턴을 구현함
 
+-----구조
+
 scr/main/resources:classpath:설정파일+mapperxml... (mybatis log4j...)
 
 src/test/java, src/test/resources(!=webapp/resources:정적인 파일:js,html,css,image, controller거치지 않고 갈 수 있는 파일(web-inf는 컨트롤러거쳐야 함))는 빌드시에 제외됨(설정파일)
 
+web=inf/classes:자바가 컴파일 후 이 공간에 들어오게 됨
+
+root_context.xml:기능적인 추가부분에 관한 설정(컨테이너1)
+servlet-context.xml:기본세팅, 웹과 관련된 컨테이너에 관한 설정(컨테이너2)
