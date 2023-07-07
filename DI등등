@@ -10,3 +10,10 @@ build하면 target에 jar파일이 생김
 bean: 인스턴스 중 스프링이 관리하며 ioc컨테이너 안에 있는 것(싱글톤패턴)
 
 xml비주류가 되어가능,,,현실,,,데신애 annotation 마니 쓴다!
+
+spring은 프록시패턴을 구현함
+
+scr/main/resources:classpath:설정파일+mapperxml... (mybatis log4j...)
+
+src/test/java, src/test/resources(!=webapp/resources:정적인 파일:js,html,css,image, controller거치지 않고 갈 수 있는 파일(web-inf는 컨트롤러거쳐야 함))는 빌드시에 제외됨(설정파일)
+
