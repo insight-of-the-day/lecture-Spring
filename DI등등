@@ -1,0 +1,12 @@
+
+mvn repository->Spring-context(5버전중최신링크:jdk11과 호환; 를 pom.xml에 추가)
+
+
+
+참고:
+스프링:다이나믹웹+메이븐
+build하면 target에 jar파일이 생김
+
+bean: 인스턴스 중 스프링이 관리하며 ioc컨테이너 안에 있는 것(싱글톤패턴)
+
+xml비주류가 되어가능,,,현실,,,데신애 annotation 마니 쓴다!
