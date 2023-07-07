@@ -23,3 +23,8 @@ web=inf/classes:자바가 컴파일 후 이 공간에 들어오게 됨
 
 root_context.xml:기능적인 추가부분에 관한 설정(컨테이너1)
 servlet-context.xml:기본세팅, 웹과 관련된 컨테이너에 관한 설정(컨테이너2)
+
+DB====
+HikariCP는 connectionpool을 만들어 놓는 것 : 커넥션 풀을 생성하는 것은  이 외에도 라이브러리가 있음
+
+db.properties로 db의 개인정보를 분리함
