@@ -51,7 +51,7 @@ requestmapping이 아래 4가지를 모두 포괄하나, method를 분명하게 
 
 커맨드객체방식:annotation사용하지 않는 방식, key:value형식의 질의문자열에 대응할 수 있음:get방식이나 form태그(submit)를 이용하여 보내기(json안됨)
 @requestparam:객체가 아닌 기본타입의 질의문자열(객체라면 커맨드객체를 사용하여라)
-@requestbody:제이슨타입request을 parsing(json아니어도 되긴 한데 parsing이 좀 귀찮대 ㅋㅋ)
+@requestbody:제이슨타입request을 parsing(json아니어도 되긴 한데 parsing이 좀 귀찮대 ㅋㅋ)+get방식불가
 @RequestPart쓰려면 fileupload를 위한 bean을 등록해야 함
 Model:spring에서 request,response를 합친 객체(request,response를 처리할 때 model을 사용해도 돼:주로 return값이 있을 경우 사용):반환될 때는 분리해서 처리됨
 
