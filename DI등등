@@ -37,6 +37,12 @@ https://www.egovframe.go.kr/home/main.do
 
 
 
+form으로 배열 보내귕~~~
+<input name="list[0].name">: 쿼리스트링의 name에 어떤 필드의 몇 번째 값인지를 명시해야 함
+이것을 vo에서는 객체로 받아야 함(requestparam으로 처리불가)
+
+
+
 CONTROLLER++++++++++++++++++++++++++++++++++++
 @RequestMapping
 @postMapping,@GetMapping,@DeleteMapping@PutMapping
