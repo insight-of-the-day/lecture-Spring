@@ -33,3 +33,11 @@ db.properties로 db의 개인정보를 분리함
 
 egov(전자정부
 https://www.egovframe.go.kr/home/main.do
+
+
+
+
+CONTROLLER++++++++++++++++++++++++++++++++++++
+@RequestMapping
+@postMapping,@GetMapping,@DeleteMapping@PutMapping
+requestmapping이 아래 4가지를 모두 포괄하나, method를 분명하게 명시하는 아래의 방식이 좀 더 많이 쓰인다.
