@@ -88,13 +88,13 @@ Json의 형식:collection(object),list
 Json annotation:@requestbody(get방식으로는 불가:get은 body에data없음),@responsebody(json으로 보낼 수 있지만 java객체도 전송가능(string,collection포함))
 
 
-=====Spring endpoint
+=======================================Spring endpoint
 RestController는 page반환하지 않고 data반환한당 responsebody안붙여도 됨(따라서 view resolver작동안함)>그래서 controller랑 restcontroller분리해서 사용하면 유지보수하는 데 용이하겟종?
 
 
 
-
-https://brunch.co.kr/@adrenalinee31/1
+=========================================================================
+https://brunch.co.kr/@adrenalinee31/1  <여기의 해결책은 미봉책임, 플러그인 까는 거는 사용자에게도 강제되어야 함. 구냥,,,서버끼리 통신하게 만들어야 한대(그걸 엇덕캐 하는지는 멀라,,ㅎ
 SameOriginPolicy로 다른 uri는 불가능하기 때문에
 페이지와 서버와의 교류가 아니라 서버와서버단의 교류를 하는 방법:https://sjh836.tistory.com/141
 
