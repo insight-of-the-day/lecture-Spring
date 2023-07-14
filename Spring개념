@@ -98,3 +98,4 @@ https://brunch.co.kr/@adrenalinee31/1
 SameOriginPolicy로 다른 uri는 불가능하기 때문에
 페이지와 서버와의 교류가 아니라 서버와서버단의 교류를 하는 방법:https://sjh836.tistory.com/141
 
+프록시서버를 통해 도메인네임?을 바꾸는 방법도 있엉
