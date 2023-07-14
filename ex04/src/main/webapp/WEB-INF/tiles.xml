@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="mainTemplate" template="/WEB-INF/views/tiles/layout.jsp" >
+			<put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp"/>
+			<put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp"/>
+	</definition>
+	<definition name="*/*" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
+<!-- 		/WEB-INF/views/{2}/{1}.jsp 도 가능함-->
+	</definition>
+	
+	<definition name="home" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/views/home.jsp"></put-attribute>
+<!-- 			<put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp"/> 
+여기서 재정의하면 다른 것으로 덮어쓰기 ㄱㄴ-->
+	</definition>
+</tiles-definitions>
+<!-- 우ㅣ에서 아래방향으로 진행되기 때문에 definition의 순서를 유의해서 설정해랑 -->
