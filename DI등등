@@ -1,6 +1,10 @@
 
 mvn repository->Spring-context(5버전중최신링크:jdk11과 호환; 를 pom.xml에 추가)
 
+공공데이터포털(openAPI이써) https://www.data.go.kr/index.do
+
+오픈밴킹(승인받아야권한생김ㅋㅋ) https://www.openbanking.or.kr/main
+
 
 
 참고:
@@ -71,6 +75,19 @@ redirect:책임전가갓운거,,, (request,response보존x:쿼리스트링을 �
 request와response는 1회성임, 요청할 때 마다 만들어짐
 
 
+
+
+
+=======================================================Json
+실제로 객체다? 는 아님
+js의 객체형식을 차용했을 뿐(field,value)문자열임=>변환해야 사용할 수 있음
+Json(Javascript Object Notation)
+Json의 형식:collection(object),list
+Json annotation:@requestbody(get방식으로는 불가:get은 body에data없음),@responsebody(json으로 보낼 수 있지만 java객체도 전송가능(string,collection포함))
+
+
+=====Spring endpoint
+RestController는 page반환하지 않고 data반환한당 responsebody안붙여도 됨(따라서 view resolver작동안함)>그래서 controller랑 restcontroller분리해서 사용하면 유지보수하는 데 용이하겟종?
 
 
 
