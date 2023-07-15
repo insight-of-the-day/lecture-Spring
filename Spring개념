@@ -86,7 +86,7 @@ request와response는 1회성임, 요청할 때 마다 만들어짐
 실제로 객체다? 는 아님
 js의 객체형식을 차용했을 뿐(field,value)문자열임=>변환해야 사용할 수 있음
 Json(Javascript Object Notation)
-Json의 형식:collection(object),list
+Json의 형식:collection(object),array,boolean,string,number
 Json annotation:@requestbody(get방식으로는 불가:get은 body에data없음),@responsebody(json으로 보낼 수 있지만 java객체도 전송가능(string,collection포함))
 
 
