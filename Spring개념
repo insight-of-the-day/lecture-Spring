@@ -5,6 +5,9 @@ mvn repository->Spring-context(5버전중최신링크:jdk11과 호환; 를 pom.x
 
 오픈밴킹(승인받아야권한생김ㅋㅋ) https://www.openbanking.or.kr/main
 
+egov(전자정부
+https://www.egovframe.go.kr/home/main.do
+
 
 
 참고:
@@ -35,8 +38,7 @@ db.properties로 db의 개인정보를 분리함
 
 
 
-egov(전자정부
-https://www.egovframe.go.kr/home/main.do
+
 
 
 
