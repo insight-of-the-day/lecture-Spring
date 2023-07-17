@@ -33,7 +33,7 @@
 					<li><a href="${pageContext.request.contextPath }/boardList" class="nav-link px-2 text-secondary">BoardList</a></li>
 <!-- 							현재경로에서 empList는 controller를 통해 접근하는 것이얌 -->
 					<li><a href="${pageContext.request.contextPath }/" class="nav-link px-2 text-white">Home</a></li>
-					<li><a href="${pageContext.request.contextPath }/boardInsert" class="nav-link px-2 text-secondary">BoardInsert</a></li>
+					<li><a href="${pageContext.request.contextPath }/boardInsert" class="nav-link px-2 text-secondary">Write</a></li>
 				</ul>
 
 				<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
