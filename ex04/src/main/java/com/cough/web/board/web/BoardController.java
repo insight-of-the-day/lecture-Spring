@@ -32,9 +32,10 @@ public class BoardController {
 	}
 	
 	@GetMapping("boardInfo")
-	public String getboardInfo(BoardVO vo, Model m) {
-//		BoardVO vo=new BoardVO();
-//		vo.setBno(bno);<이렇게 받으려면 requestparam써야함
+	public String getboardInfo(int bno, Model m) {
+		BoardVO vo=new BoardVO();
+		vo.setBno(bno);
+		//<이렇게 받으려면 requestparam써야함(아닌데?실제론 되는 거 확인함
 		
 //		커맨드 객체로 받을 때에는
 		//field명과 같은 것이 쿼리스트링내에 존재하면 되기 때문에 vo로 받아도 됨
@@ -92,6 +93,8 @@ public class BoardController {
 //		}else {
 //			msg="fail";
 //		}
+		
+		
 //		rtt.addFlashAttribute("message",msg);
 		//redirectattribute는 재요청되는request에 정보를 복사하기때문에 정보가 유지됨
 		//session을 임시저장소로 쓰며 그 정보를 request로 paste
