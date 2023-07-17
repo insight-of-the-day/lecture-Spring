@@ -5,9 +5,9 @@
 <mapper namespace="com.cough.web.board.mapper.BoardMapper">
 	<select id="searchAll" resultType="BoardVO">
 		select * from board
-		order by
-		regdate desc
+		order by bno
 	</select>
+<!-- 	구조를 파악하고 쿼리문을 써라!!! DB의 구조에 따라 삽입되는 값이 달라질 수도 있다앙 -->
 
 	<select id="search" resultType="BoardVO">
 		select * from board
@@ -20,13 +20,21 @@
 		<selectKey keyProperty="bno" resultType="int" order="BEFORE">
 			select
 			nvl(max(bno),0)+1 from board
+			
 		</selectKey>
+<!-- 			nvl2가 아니라 nvl을 쓰는 이유:nvl2는 고정값을 반환하기 땜운 -->
+
+<!-- BD230717001<이러한 형식으로 만드려면 밑의 구문이 필요함 -->
+<!-- BDYYMMDDnum<이러한 형식으로 만드려면 밑의 구문이 필요함 -->
+<!-- select 'BD'||to_char(sysdate,'rrMMdd')||lpad((nvl(max(substr(bno,-3)),0)+1),3,'0')  -->
+<!-- from board where substr(bno,3,6)=to_char(sysdate,'rrMMdd'); -->
+
 		insert into board
-		(title
+		(title,bno
 		<if test="regdate!=null">
 			,regdate
 		</if>
-		<if test="contents!=null !contents.equals('')">
+		<if test="contents!=null and !contents.equals('')">
 			,contents
 		</if>
 		<if test="image!=null and !image.equals('')">
@@ -36,14 +44,14 @@
 		<!-- ,sysdate regdate DB의 default가 sysdate라서 따로 지정할 필요 없으 -->
 		)
 		values
-		(#{title}
+		(#{title},#{bno}
 		<if test="regdate!=null">
-			#{regdate}
+			,#{regdate}
 		</if>
-		<if test="contents!=null !contents.equals('')">
+		<if test="contents!=null and !contents.equals('')">
 			,#{contents}
 		</if>
-		<if test="image!=null">
+		<if test="image!=null and !image.equals('')">
 			,#{image}
 		</if>
 		,#{writer}
@@ -51,16 +59,20 @@
 		<!-- regdate DB의 default가 sysdate라서 따로 지정할 필요 없음 -->
 		)
 	</insert>
+	
+<!-- 	DB의 default는 insert에만 동작함 >Update에서는 동작하지 않음 -->
 	<update id="update" parameterType="BoardVO">
 		update board
 		<set>
 			<if test="title!=null and !title.equals('')">
 				title=#{title},
 			</if>
-			<if test="contents!=null and !contents.equals('')">
+			<if test="contents!=null">
+<!-- 			nullable이라서 아래의 조건 빼야함
+	and !contents.equals('')" -->
 				contents=#{contents},
 			</if>
-			<if test="image!=null and !image.equals('')">
+			<if test="image!=null">
 				image=#{image},
 			</if>
 			<choose>
@@ -75,4 +87,8 @@
 		where bno=#{bno}
 	</update>
 
+<delete id="delete" parameterType="int">
+	delete board where bno=#{haha}
+<!--  	parameter가 1개인 경우에 안의 내용은 아~무렴 상관이 없서요 -->
+</delete>
 </mapper>

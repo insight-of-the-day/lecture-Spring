@@ -16,6 +16,10 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
 	crossorigin="anonymous"></script>
+	
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<!-- 	제이쿼리를 집어넣어서 일일이 안 넣어도 되도록 하자~~ -->
 <title>하하하하하하핳</title>
 </head>
 <body>
