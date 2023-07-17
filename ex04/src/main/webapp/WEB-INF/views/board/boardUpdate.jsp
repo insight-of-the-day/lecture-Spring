@@ -57,7 +57,7 @@
 
 		})
 		.done(data=>{
-			if(data!=null&&data['result']==true){
+			if(data['result']){
 				alert('success'+'  '+data.boardInfo.bno)
 			}else{
 				alert('fail');
