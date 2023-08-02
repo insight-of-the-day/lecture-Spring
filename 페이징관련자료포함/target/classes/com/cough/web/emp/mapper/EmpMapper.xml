@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.cough.web.emp.mapper.EmpMapper">
+  <select id="getTotalCount" resultType="int">
+  	select count(*)
+  	from employees
+  </select>
+  
+  <select id="selectEmpAll" resultType="EmpVO">
+  	select * 
+  	from (select rownum rn, a.*
+  					from (select * 
+  							from employees 
+  							order by employee_id) a)
+<!--   	젤 밖의 서브쿼리는 where문의 동작을 위해 한 것임(쿼리문의 실행순서때문) 
+프라이머리키로 하기 어려운 이유는 data가 삭제될 가능성이 있기 때문이다-->
+  					where rn between #{start}and #{end}	
+  </select>
+  </mapper>
