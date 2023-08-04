@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- <context:property-placeholder -->
+	<!-- location="classpath:config/db.properties" /> -->
+
+	<!-- http://www.jasypt.org/spring31.html 에서 다운가능 -->
+	<!-- 환경변수저장 -->
+	<bean id="environmentVariablesConfiguration"
+		class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
+		<property name="algorithm" value="PBEWithMD5AndDES" />
+
+		<!-- key값이 됨(그렇지만 노출되어서는 안 되는>프로젝트내에어디에존재해도안됨) -->
+		<property name="password"
+			value="${jasypt.encryptor.password}" />
+	</bean>
+
+	<!-- 암호화작업하는 빈 -->
+	<bean id="configurationEncryptor"
+		class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
+		<property name="config"
+			ref="environmentVariablesConfiguration" />
+	</bean>
+
+
+<!-- properties파일을 읽어들여 암호화를 해석 -->
+	<bean id="propertyConfigurer"
+		class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer">
+		<constructor-arg ref="configurationEncryptor" />
+		<property name="locations">
+			<list>
+				<value>classpath:config/db.properties</value>
+			</list>
+		</property>
+
+	</bean>
+
+
+
+
+	<!-- datasource connection pool -->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName" value="${driver}" />
+		<property name="jdbcUrl" value="${Url}" />
+		<property name="username" value="${usern}" />
+		<property name="password" value="${pwd}" />
+	</bean>
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+		destroy-method="close">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
+
+	<!-- mybatis SqlSessionFactory -->
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation"
+			value="classpath:config/mybatis-config.xml" />
+		<property name="mapperLocations"
+			value="classpath*:com/cough/web/**/mapper/*Mapper.xml" />
+		<!-- 여기서 *을 붙이는 이유는 java가 compile하면 jar로 압축이 되는데 그 안에 xml까지 있으니까 -->
+		<!-- 그걸 찾으려면 더 깊이?찾아야 하기 때무네 *을 붙임 그치만 기본적으로classpath는 src/main/resources로 
+			보면 됨, 왜냐면 java에서는 import로 다른 파일을 불러올 수 있으니가? classpath는 물리적 경로를 무시하고 compile시에 
+			불러오는 경로?같은거임 -->
+	</bean>
+	<!-- <!– mapper scan -->
+	<mybatis-spring:scan
+		base-package="com.cough.web.**.mapper" />
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- !!!!!!!!!매퍼랑 인터페이스 매핑하는거안했음!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<!-- !!!!!!!!!!!!! -->

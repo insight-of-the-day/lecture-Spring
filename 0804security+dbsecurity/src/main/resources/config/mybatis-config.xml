@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  <configuration>
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	<typeAliases>
+		<package name="com.cough.web" />
+		<!-- 여기서 *못씀 
+		typeAliases때문에 동일한 class이름이 있으면 충돌이 남-->
+<!-- 		cutie.app의 하위 package를 모두 여기 포함함 -->
+	</typeAliases>
+<!-- 	java.util.date -->
+	<typeHandlers>
+		<typeHandler javaType="java.sql.Date" handler="org.apache.ibatis.type.DateTypeHandler"/>
+	</typeHandlers>
+</configuration>
